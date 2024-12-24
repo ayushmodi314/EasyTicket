@@ -1,0 +1,49 @@
+document.getElementById('bookNow').addEventListener('click', () => {
+  alert('Redirecting to the booking page...');
+});
+
+const movieCards = document.querySelectorAll('.movie-card');
+movieCards.forEach(card => {
+  card.querySelector('.btn').addEventListener('click', () => {
+    alert('Booking your ticket...');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('myChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+      datasets: [{
+        label: 'Monthly Sales',
+        data: [120, 190, 75, 95],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+        borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+});
+
+// WebSocket Notifications
+const socket = io('http://localhost:5001');
+socket.on('notification', message => {
+  const notifContainer = document.querySelector('.notifications');
+  if (notifContainer) {
+    const notifElement = document.createElement('div');
+    notifElement.textContent = message;
+    notifElement.className = 'notification bg-blue-500 text-white p-4 rounded shadow-lg mt-4';
+    notifContainer.appendChild(notifElement);
+
+    setTimeout(() => {
+      notifElement.remove();
+    }, 5000);
+  }
+});
