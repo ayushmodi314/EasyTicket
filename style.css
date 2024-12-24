@@ -1,0 +1,124 @@
+/* Resetting some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basic Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    padding: 1rem;
+  }
+  
+  header nav ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 2rem;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  .movies {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+  }
+  
+  .movie-card {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .movies {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .movie-card {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .notifications {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        max-width: 300px;
+      }
+      
+      .notification {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        animation: fade-in-out 5s ease-in-out;
+      }
+      
+      @keyframes fade-in-out {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      
+  }
+  
