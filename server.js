@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');  // Add path import
+const bcrypt = require('bcryptjs');  // For password hashing
 
 dotenv.config();
 
@@ -16,19 +18,22 @@ mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.error(err));
-  
 
-// Basic Route
-app.get('/', (req, res) => {
-  res.send('Welcome to the Ticket Management System');
-});
-
+// Routes
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 
 const eventRoutes = require('./routes/eventRoutes'); // Add eventRoutes
 app.use('/api/events', eventRoutes); // Set up the event routes
 
+// Auth routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Socket.io setup for real-time notifications
 const http = require('http');
 const { Server } = require('socket.io');
 
@@ -55,16 +60,6 @@ io.on('connection', (socket) => {
 // Define the port
 const PORT = process.env.PORT || 5001;
 
-// Start the server using `server.listen`
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-// // Use the `server` instead of `app` to listen on the port
-// server.listen(5000, () => {
-//   console.log('Server running on port 5000');
-// });
-
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

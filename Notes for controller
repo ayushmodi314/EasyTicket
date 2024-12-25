@@ -1,0 +1,2 @@
+This code defines two controller functions for handling operations related to events in your application. These controllers work with the Event model and are designed to be used with Express routes. Let’s break it down:
+

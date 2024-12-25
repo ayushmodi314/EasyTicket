@@ -1,0 +1,13 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">: Ensures the page scales correctly on mobile devices.
+
+bg-gradient-to-r from-blue-600 to-purple-700: Creates a gradient background from blue to purple.
+
+class="hover:underline hover:text-yellow-300": Adds hover effects like underlining and changing text color to yellow when the user hovers over the link
+
+<p>: A description or message.
+
+
+class="bg-yellow-500 px-8 py-4 text-lg rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105": Tailwind classes for styling:
+
+THIS IS FOR THE HTML CODE NOW WE ARE MOVING TO APP.JS
+***

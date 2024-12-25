@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookMyShow</title>
+  <title>EasyTicket</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome for Icons -->
@@ -16,22 +16,24 @@
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
   <!-- Header -->
   <header class="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-4 shadow-lg">
+    <!--bg-gradient-to-r from-blue-600 to-purple-700: Creates a gradient background from blue to purple.-->
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold">🎬 BookMyShow</h1>
+      <h1 class="text-3xl font-bold">🎬 EasyTicket</h1>
       <nav>
-        <ul class="flex space-x-6">
+        <!-- <ul class="flex space-x-6">
           <li><a href="#" class="hover:underline hover:text-yellow-300">Home</a></li>
           <li><a href="#" class="hover:underline hover:text-yellow-300">Movies</a></li>
           <li><a href="#" class="hover:underline hover:text-yellow-300">Events</a></li>
           <li><a href="#" class="hover:underline hover:text-yellow-300">Sign Up</a></li>
-        </ul>
+        </ul> -->
       </nav>
     </div>
   </header>
+  
 
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center py-16">
-    <h1 class="text-5xl font-extrabold mb-4">Discover the Best Movies & Events</h1>
+    <h1 class="text-5xl font-extrabold mb-4">Discover the Best Movies in Your City</h1>
     <p class="text-lg mb-8">Your one-stop solution for entertainment tickets.</p>
     <button id="bookNow" class="bg-yellow-500 px-8 py-4 text-lg rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105">
       Book Now
@@ -39,29 +41,29 @@
   </section>
 
   <!-- Featured Movies Section -->
-  <section class="container mx-auto my-10">
+  <section id="moviemenu" class="container mx-auto my-10">
     <h2 class="text-3xl font-bold text-center mb-6">🎥 Featured Movies</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
-        <img src="assets/images/movie1.jpg" alt="Movie 1" class="w-full h-56 object-cover">
+        <img src="assets/images/ZNMD.jpg" alt="Movie 1" class="w-full h-96 object-cover object-center object-top  ">
         <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">Movie Title 1</h3>
-          <p class="text-gray-700">A thrilling story you can't miss!</p>
+          <h3 class="text-xl font-bold mb-2">Zindagi Na Milegi Dobara</h3>
+          <p class="text-gray-700">A story that you can't miss!</p>
           <button class="btn mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Book Ticket</button>
         </div>
       </div>
       <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
-        <img src="assets/images/movie2.jpg" alt="Movie 2" class="w-full h-56 object-cover">
+        <img src="assets/images/Interstellar.jpg" alt="Movie 2" class="w-full h-96 object-cover object-top">
         <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">Movie Title 2</h3>
+          <h3 class="text-xl font-bold mb-2">Interstellar</h3>
           <p class="text-gray-700">Experience the magic of cinema.</p>
           <button class="btn mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Book Ticket</button>
         </div>
       </div>
       <div class="movie-card bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
-        <img src="assets/images/movie3.jpg" alt="Movie 3" class="w-full h-56 object-cover">
+        <img src="assets/images/DDLJ.jpg" alt="Movie 3" class="w-full h-96 object-cover object-top">
         <div class="p-4">
-          <h3 class="text-xl font-bold mb-2">Movie Title 3</h3>
+          <h3 class="text-xl font-bold mb-2">Dilwale Dulhaniya Le Jayenge</h3>
           <p class="text-gray-700">An unforgettable adventure awaits.</p>
           <button class="btn mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Book Ticket</button>
         </div>
@@ -69,11 +71,11 @@
     </div>
   </section>
 
-  <!-- Chart Section -->
+  <!-- Chart Section
   <section class="container mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
     <h2 class="text-3xl font-bold mb-6 text-center">📊 Sales Data</h2>
     <canvas id="myChart"></canvas>
-  </section>
+  </section> -->
 
   <!-- Footer -->
   <footer class="bg-gradient-to-r from-blue-600 to-purple-700 text-white text-center py-6 mt-10">

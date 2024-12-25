@@ -1,6 +1,11 @@
+// document.getElementById('bookNow').addEventListener('click', () => {
+//   alert('Redirecting to the booking page...');
+// });
+
 document.getElementById('bookNow').addEventListener('click', () => {
-  alert('Redirecting to the booking page...');
+  document.getElementById('moviemenu').scrollIntoView({ behavior: 'smooth' });
 });
+
 
 const movieCards = document.querySelectorAll('.movie-card');
 movieCards.forEach(card => {
@@ -9,27 +14,33 @@ movieCards.forEach(card => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const ctx = document.getElementById('myChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-      datasets: [{
-        label: 'Monthly Sales',
-        data: [120, 190, 75, 95],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-        borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true }
-      }
-    }
-  });
+//  document.addEventListener('DOMContentLoaded', () => {
+//   const ctx = document.getElementById('myChart').getContext('2d');
+//   new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//       labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+//       datasets: [{
+//         label: 'Monthly Sales',
+//         data: [120, 190, 75, 95],
+//         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+//         borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+//         borderWidth: 1
+//       }]
+//     },
+//     options: {
+//       responsive: true,
+//       scales: {
+//         y: { beginAtZero: true }
+//       }
+//     }
+//   });
+// });
+
+// Guest login handling
+document.getElementById('guestLoginBtn').addEventListener('click', () => {
+  alert('Logged in as Guest');
+  window.location.href = 'index.html'; // Redirect to the homepage
 });
 
 // WebSocket Notifications

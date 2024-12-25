@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Booking</title>
+  <script defer src="app_seating.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+  <!-- Movie Selection -->
+  <section class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-center mb-4">Select your Seats</h1>
+    <select id="movieSelector" class="block mx-auto p-2 bg-white border border-gray-300 rounded">
+      <option value="movie1" selected>Zindagi Na Milegi Dobara </option>
+      <option value="movie2">Interstellar</option>
+      <option value="movie3">Dilwale Dulhaniya Le Jayenge</option>
+    </select>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="bookingSection" class="container mx-auto py-8">
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <!-- Movie Poster -->
+      <div id="moviePoster" class="text-center mb-6">
+        <img src="assets/Posters/1.jpeg" alt="Movie Poster" id="posterImage" class="w-full h-96 object-cover mx-auto">
+      </div>
+
+      <!-- Movie Title -->
+      <h2 id="movieTitle" class="text-2xl font-bold text-center mb-4">Zindagi Na Milegi Dobara</h2>
+
+      <!-- Screen -->
+      <div class="text-center bg-gray-300 p-4 rounded-lg mb-6">
+        <span class="text-lg font-bold">SCREEN</span>
+      </div>
+
+      <!-- Seats Layout -->
+      <div id="seatLayout" class="grid grid-cols-4 gap-4 justify-center mb-6">
+        <!-- Seats will be dynamically rendered here -->
+      </div>
+
+      <!-- Selected Seats Info -->
+      <div>
+        <p class="text-lg font-bold">Selected Seats: <span id="selectedSeats">None</span></p>
+        <p class="text-lg font-bold">Total Seats: <span id="totalSeats">0</span></p>
+      </div>
+
+      <!-- Submit Button -->
+      <button id="submitBooking" class="mt-4 bg-green-500 text-white p-2 rounded-lg">Confirm Booking</button>
+    </div>
+  </section>
+</body>
+</html>
