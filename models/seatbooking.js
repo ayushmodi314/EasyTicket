@@ -2,9 +2,9 @@
 const mongoose = require('mongoose');
 
 const seatBookingSchema = new mongoose.Schema({
-  movieId: { type: String, required: true },
+  movie: { type: String, required: true },
   seats: { type: [String], required: true },
-  createdAt: { type: Date, default: Date.now }
+  totalPrice: { type: Number, required: true },
 });
 
-module.exports = mongoose.model('SeatBooking', seatBookingSchema);
+module.exports = mongoose.model('seatBooking', seatBookingSchema);

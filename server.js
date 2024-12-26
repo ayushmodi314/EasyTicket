@@ -30,8 +30,21 @@ app.use('/api/events', eventRoutes); // Set up the event routes
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
+// Booking Routes
+const movieBookingRoutes = require('./routes/bookingRoutes');
+app.use('/api', movieBookingRoutes);
+
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+//payment routes
+const Paymentroutes = require('./routes/gateway');
+app.use('/api',Paymentroutes);
+
+// //serve payment static files
+// app.use(express.static(path.join(__dirname, 'Payments')));
+
 
 // Socket.io setup for real-time notifications
 const http = require('http');

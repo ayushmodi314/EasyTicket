@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         poster: "assets/Posters/2.jpg", // Image for Movie 2
         seats: ["C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4", "E1", "E2", "E3", "E4", "F1", "F2", "F3", "F4"]
       },
-      movie3: {
+      movie3: {             
         title: "Dilwale Dulhania Le Jayenge",
         poster: "assets/Posters/ddlj_cover.jpeg", // Image for Movie 3
         seats: ["E1", "E2", "E3", "E4", "F1", "F2", "F3", "F4", "G1", "G2", "G3", "G4", "H1", "H2", "H3", "H4"]
@@ -60,10 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Function to update the seat selection info
     function updateSeatInfo() {
+      const pricePerSeat = 300;
       selectedSeatsElement.textContent = selectedSeats.length ? selectedSeats.join(', ') : 'None';
       totalSeatsElement.textContent = selectedSeats.length;
+      document.getElementById('totalPrice').textContent = selectedSeats.length * pricePerSeat;
     }
-  
+    
     // Handle movie change
     movieSelector.addEventListener('change', function () {
       const selectedMovieKey = movieSelector.value;
@@ -80,25 +82,35 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("Please select at least one seat.");
         return;
       }
-  
-      // Send selected seats to the backend
-      fetch('/api/book-seats', {
+    
+      const selectedMovieKey = movieSelector.value;
+      const selectedMovie = movies[selectedMovieKey];
+    
+      // Send selected seats and movie title to the backend
+      fetch('http://localhost:5001/api/book-seats', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ seats: selectedSeats })
+        body: JSON.stringify({ movie: selectedMovie.title, seats: selectedSeats }),
       })
-      .then(response => response.json())
-      .then(data => {
-        alert("Booking confirmed! Your selected seats: " + data.seats.join(", "));
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("Error confirming booking.");
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert(`Booking confirmed! Your selected seats: ${data.seats.join(", ")}\nTotal Price: ₹${data.totalPrice}`);
+            // Redirect to the payment page
+            window.location.href = 'file:///C:/Users/Ayush%20Modi%20Indore/Desktop/BookmyShow/BookmyShow/public/Payments/gateway.html';
+            
+
+
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Error confirming booking.');
+        });
     });
-  
+    
     // Initialize with the first movie
     renderSeats(movies.movie1);
   });
