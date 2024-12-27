@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Invalid CVV. Please enter a valid 3-digit number.');
       return;
     }
+// //FUNCTION TO SHOW NUMBER OF SEATS IN RELEVANT INFO ON THE TICKET PAGE
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Retrieve data from localStorage
+//   const movieName = localStorage.getItem('selectedMovie');
+//   const seatList = JSON.parse(localStorage.getItem('selectedSeats')).join(', ');
+//   const totalAmount = localStorage.getItem('totalPrice');
+
+//   // Populate the payment form with the stored data
+//   document.getElementById('movieName').textContent = movieName;
+//   document.getElementById('seatList').textContent = seatList;
+//   document.getElementById('totalAmount').textContent = totalAmount;
+// });
+
+
+
 
     // Simulate API call
     try {
@@ -40,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (result.success) {
         alert('Payment Successful! Thank you for booking.');
-        localStorage.clear();
+        //localStorage.clear();
         window.location.href = 'confirmationpage.html'; // Redirect to confirmation page
       } else {
         alert(`Payment failed: ${result.message}`);

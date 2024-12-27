@@ -5,14 +5,21 @@
 document.getElementById('bookNow').addEventListener('click', () => {
   document.getElementById('moviemenu').scrollIntoView({ behavior: 'smooth' });
 });
-
-
 const movieCards = document.querySelectorAll('.movie-card');
 movieCards.forEach(card => {
   card.querySelector('.btn').addEventListener('click', () => {
-    alert('Booking your ticket...');
+    // Redirect to the seating page (seating.html)
+    window.location.href = 'seating.html';
   });
 });
+
+
+// const movieCards = document.querySelectorAll('.movie-card');
+// movieCards.forEach(card => {
+//   card.querySelector('.btn').addEventListener('click', () => {
+//     alert('Booking your ticket...');
+//   });
+// });
 
 //  document.addEventListener('DOMContentLoaded', () => {
 //   const ctx = document.getElementById('myChart').getContext('2d');

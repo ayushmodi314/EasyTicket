@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
   
+    //Function to store the seats in internal storage 
     let selectedSeats = [];
   
     // Function to render seats based on selected movie
@@ -66,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('totalPrice').textContent = selectedSeats.length * pricePerSeat;
     }
     
+
+    
+    
     // Handle movie change
     movieSelector.addEventListener('change', function () {
       const selectedMovieKey = movieSelector.value;
@@ -85,6 +89,24 @@ document.addEventListener('DOMContentLoaded', function () {
     
       const selectedMovieKey = movieSelector.value;
       const selectedMovie = movies[selectedMovieKey];
+      const totalPrice = selectedSeats.length * 300;
+
+ // Store booking details in localStorage for the payment page
+ localStorage.setItem('selectedMovie', selectedMovie.title);
+ localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+ localStorage.setItem('totalPrice', totalPrice);
+
+
+      //DEBUGGING
+      console.log("Selected Movie:", selectedMovie.title);  // Debug
+      console.log("Selected Seats:", selectedSeats);        // Debug
+      console.log("Total Price:", totalPrice);              // Debug
+    
+
+     
+
+
+
     
       // Send selected seats and movie title to the backend
       fetch('http://localhost:5001/api/book-seats', {
@@ -99,7 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
           if (data.success) {
             alert(`Booking confirmed! Your selected seats: ${data.seats.join(", ")}\nTotal Price: ₹${data.totalPrice}`);
             // Redirect to the payment page
-            window.location.href = 'file:///C:/Users/Ayush%20Modi%20Indore/Desktop/BookmyShow/BookmyShow/public/Payments/gateway.html';
+            window.location.href = '../public/Payments/gateway.html';
+
             
 
 

@@ -3,53 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Ticket</title>
+  <title>Booking Confirmation</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100">
+  <!-- Confirmation Section -->
+  <section class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-center mb-4">Booking Confirmed</h1>
+    
+    <!-- Movie Poster -->
+    <div class="text-center mb-6">
+      <img id="posterImage" src="" alt="Movie Poster" class="w-full h-96 object-cover mx-auto">
+    </div>
 
-  <!-- Ticket Container -->
-  <section class="container mx-auto py-10">
-    <div class="bg-white shadow-lg rounded-lg p-8 max-w-xl mx-auto">
-      <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">Your Ticket</h1>
+    <!-- Movie Title -->
+    <h2 id="movieTitle" class="text-2xl font-bold text-center mb-4">Movie Title</h2>
 
-      <!-- Movie Banner -->
-      <div class="flex justify-center mb-6">
-        <img src="https://via.placeholder.com/600x300" alt="Movie Banner" class="rounded-lg shadow-lg w-full">
-      </div>
-//My change
-      <!-- Ticket Details -->
-      <div class="text-center mb-6">
-        <p class="text-xl font-semibold text-gray-700 mb-2">Movie: <span id="movieName">Avengers: Endgame</span></p>
-        <p class="text-lg text-gray-600 mb-2">Seat: <span id="seatName">A12</span></p>
-        <p class="text-xl font-bold text-blue-500 mb-4">Price: ₹<span id="ticketPrice">0</span></p>
-      </div>
+    <!-- Selected Seats -->
+    <div class="text-center mb-4">
+      <p class="text-lg font-bold">Seats: <span id="selectedSeats">None</span></p>
+      <p class="text-lg font-bold">Total Price: ₹<span id="totalPrice">0</span></p>
+    </div>
 
-      <!-- Payment Details -->
-      <div class="bg-gray-50 p-4 rounded-lg shadow-inner mb-6">
-        <h2 class="text-lg font-semibold text-gray-800">Payment Summary</h2>
-        <p class="text-gray-700">Payment Successful! Your ticket has been booked.</p>
-      </div>
+    <!-- Payment Status -->
+    <div class="bg-green-500 text-white text-center p-4 rounded-lg">
+      <h3 class="text-xl font-bold">Payment Successful!</h3>
+      <p>Your payment has been completed successfully. Enjoy your movie!</p>
+    </div>
 
-      <!-- Confirmation Button -->
-      <div class="text-center">
-        <button onclick="window.location.href='/login.html'" class="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600">Go to Home</button>
-      </div>
+    <!-- Back to Home Button -->
+    <div class="text-center mt-6">
+      <button class="bg-blue-500 text-white p-2 rounded-lg" onclick="window.location.href = '../../index.html';">Back to Home</button>
     </div>
   </section>
 
-  <script>
+  <!-- <script> -->
+    <!-- // Fetch data from localStorage
     document.addEventListener('DOMContentLoaded', function () {
-      // Fetch data from localStorage
-      const movieName = localStorage.getItem('selectedMovie') || 'No Movie Selected';
-      const seatName = localStorage.getItem('selectedSeat') || 'No Seat Selected';
-      const totalAmount = localStorage.getItem('totalPrice') || '0';
+      const movieTitle = document.getElementById('movieTitle');
+      const posterImage = document.getElementById('posterImage');
+      const selectedSeatsElement = document.getElementById('selectedSeats');
+      const totalPriceElement = document.getElementById('totalPrice');
 
-      // Populate the ticket details
-      document.getElementById('movieName').textContent = movieName;
-      document.getElementById('seatName').textContent = seatName;
-      document.getElementById('ticketPrice').textContent = totalAmount;
-    });
+      // // Get booking details from localStorage
+      // const selectedMovie = localStorage.getItem('selectedMovie');
+      // const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+      // const totalPrice = localStorage.getItem('totalPrice');
+
+      // // Display booking details
+      // movieTitle.textContent = selectedMovie;
+      // selectedSeatsElement.textContent = selectedSeats ? selectedSeats.join(', ') : 'None';
+      // totalPriceElement.textContent = totalPrice;
+      console.log("Selected Movie:", selectedMovie);        // Debug
+    console.log("Selected Seats:", selectedSeats);        // Debug
+    console.log("Total Price:", totalPrice);              // Debug
+
+    if (selectedMovie && selectedSeats && totalPrice) {
+      // Display booking details
+      movieTitle.textContent = selectedMovie;
+      selectedSeatsElement.textContent = selectedSeats ? selectedSeats.join(', ') : 'None';
+      totalPriceElement.textContent = totalPrice;}
+
+      // Set the movie poster based on the selected movie
+      if (selectedMovie === 'Zindagi Na Milegi Dobara') {
+        posterImage.src = "assets/Posters/1.jpeg";
+      } else if (selectedMovie === 'Interstellar') {
+        posterImage.src = "assets/Posters/2.jpg";
+      } else if (selectedMovie === 'Dilwale Dulhania Le Jayenge') {
+        posterImage.src = "assets/Posters/ddlj_cover.jpeg";
+      }
+    }); -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get the DOM elements
+
+          
+        const movieTitle = document.getElementById('movieTitle');
+        const posterImage = document.getElementById('posterImage');
+        const selectedSeatsElement = document.getElementById('selectedSeats');
+        const totalPriceElement = document.getElementById('totalPrice');
+
+        // Fetch data from localStorage
+        const selectedMovie = localStorage.getItem('selectedMovie');
+        const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+        const totalPrice = localStorage.getItem('totalPrice');
+        
+    
+      
+    
+        // Check if localStorage data is available and debug
+        console.log("Selected Movie:", selectedMovie);        // Debug
+        console.log("Selected Seats:", selectedSeats);        // Debug
+        console.log("Total Price:", totalPrice);              // Debug
+    
+        if (selectedMovie && selectedSeats && totalPrice) {
+          // Populate the data in the confirmation page
+          movieTitle.textContent = selectedMovie;
+          selectedSeatsElement.textContent = selectedSeats.join(', ') || 'None';
+          totalPriceElement.textContent = `${totalPrice}`;//REMOVED AN RUPEE SYMBOL ₹
+    
+          // Set the movie poster based on the selected movie
+          if (selectedMovie === 'Zindagi Na Milegi Dobara') {
+            posterImage.src = "../../Seating/assets/Posters/1.jpeg";
+          } else if (selectedMovie === 'Interstellar') {
+            posterImage.src = "../../Seating/assets/Posters/2.jpg";
+          } else if (selectedMovie === 'Dilwale Dulhania Le Jayenge') {
+            posterImage.src = "../../Seating/assets/Posters/ddlj_cover.jpeg";
+          }
+        } else {
+          console.error("No data found in localStorage.");
+          alert("No booking data found. Please go back to the booking page.");
+        }
+      });
+    </script>
+    
   </script>
 </body>
 </html>
