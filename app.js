@@ -9,7 +9,7 @@ const movieCards = document.querySelectorAll('.movie-card');
 movieCards.forEach(card => {
   card.querySelector('.btn').addEventListener('click', () => {
     // Redirect to the seating page (seating.html)
-    window.location.href = 'seating.html';
+    window.location.href = 'Seating/seating.html';
   });
 });
 
