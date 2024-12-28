@@ -35,15 +35,21 @@ const movieBookingRoutes = require('./routes/bookingRoutes');
 app.use('/api', movieBookingRoutes);
 
 
-// Serve static files
+// Serve static files :-
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Seating')));
 
-//payment routes
+
+
+
+//Payment Folder
 const Paymentroutes = require('./public/Payments/gateway');
 app.use('/api',Paymentroutes);
 
 // //serve payment static files
 // app.use(express.static(path.join(__dirname, 'Payments')));
+
 
 
 // Socket.io setup for real-time notifications
@@ -70,15 +76,24 @@ io.on('connection', (socket) => {
   });
 });
 
-//CHANGES FOR PRODUCTION VERCEL
-// Fallback for SPA routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html')); // Serve index.html for unknown routes
-});
+// //CHANGES FOR PRODUCTION VERCEL
+// // Fallback for SPA routing
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'index.html')); // Serve index.html for unknown routes
+// });
 //TO RESOLVE GET ERROR
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html')); // Adjust path if needed
 });
+app.get('/index', (req, res) => {
+  res.redirect('/');// Adjust path if needed
+});
+app.get('/home.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home.html'));
+});
+
+app.use(express.static(__dirname));
+
 
 // Define the port
 const PORT = process.env.PORT || 5001;
