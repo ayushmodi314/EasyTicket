@@ -1,6 +1,7 @@
 // document.getElementById('bookNow').addEventListener('click', () => {
 //   alert('Redirecting to the booking page...');
 // });
+//COMMENTED OUT NOTIFICATION NOT REQUIRED
 
 document.getElementById('bookNow').addEventListener('click', () => {
   document.getElementById('moviemenu').scrollIntoView({ behavior: 'smooth' });

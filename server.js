@@ -70,6 +70,16 @@ io.on('connection', (socket) => {
   });
 });
 
+//CHANGES FOR PRODUCTION VERCEL
+// Fallback for SPA routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html')); // Serve index.html for unknown routes
+});
+//TO RESOLVE GET ERROR
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html')); // Adjust path if needed
+});
+
 // Define the port
 const PORT = process.env.PORT || 5001;
 
