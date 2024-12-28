@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const movieCards = document.querySelectorAll('.movie-card');
   movieCards.forEach(card => {
     card.querySelector('.btn').addEventListener('click', () => {
-      window.location.href = 'Seating/seating.html';  // Update path as needed
+      window.location.href = '../Seating/seating.html';  // Update path as needed
     });
   });
 
