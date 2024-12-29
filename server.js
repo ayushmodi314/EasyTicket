@@ -10,7 +10,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  credentials: false, // Set to false since credentials cannot be used with '*'
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Connect to MongoDB
@@ -57,7 +63,16 @@ const http = require('http');
 const { Server } = require('socket.io');
 
 const server = http.createServer(app); // Wrap the Express app with HTTP server
-const io = new Server(server); // Initialize Socket.IO server
+//const io = new Server(server); // Initialize Socket.IO server
+const io = new Server(server, {
+  cors: {
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST'], // Specify allowed methods
+    credentials: false, // Ensure this is false when using '*'
+  },
+});
+
+
 
 // Listen for client connections
 io.on('connection', (socket) => {

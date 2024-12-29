@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
   // WebSocket Notifications
-  const socket = io('http://localhost:5001');
+  const socket = io('https://easyticket-backend.onrender.com');
   socket.on('notification', message => {
     const notifContainer = document.querySelector('.notifications');
     if (notifContainer) {

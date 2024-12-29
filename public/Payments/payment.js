@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Simulate API call
     try {
-      const response = await fetch('http://localhost:5001/api/process-payment', {
+      const response = await fetch('https://easyticket-backend.onrender.com/api/process-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

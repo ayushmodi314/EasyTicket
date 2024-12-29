@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
       // Send selected seats and movie title to the backend
-      fetch('http://localhost:5001/api/book-seats', {
+      fetch('https://easyticket-backend.onrender.com/api/book-seats', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
