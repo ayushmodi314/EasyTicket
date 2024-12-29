@@ -16,6 +16,10 @@ const corsOptions = {
   credentials: false, // Set to false since credentials cannot be used with '*'
 };
 
+//We are allowing to access for everyone although we can change it to our vercel front end URL.
+
+//We are now modifying the backend /  request to display a message to go to Frontend URL at line no 104
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
@@ -96,10 +100,19 @@ io.on('connection', (socket) => {
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'index.html')); // Serve index.html for unknown routes
 // });
+
+
 //TO RESOLVE GET ERROR
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'index.html')); // Adjust path if needed
+// });
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html')); // Adjust path if needed
+  res.json({
+    message: 'Welcome to the API backend. Please use the official frontend at https://easy-ticket-mauve.vercel.app',
+  });
 });
+
+
 app.get('/index', (req, res) => {
   res.redirect('/');// Adjust path if needed
 });
