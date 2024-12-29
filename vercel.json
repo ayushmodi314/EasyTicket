@@ -14,14 +14,14 @@
       "use": "@vercel/static"
     },
     {
-      "src": "public/**/*",
+      "src": "public/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://easyticket-backend.onrender.com/"
+      "dest": "https://easyticket-backend.onrender.com/$1"
     },
     {
       "src": "/",
