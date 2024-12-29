@@ -106,11 +106,11 @@ io.on('connection', (socket) => {
 // app.get('/', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'index.html')); // Adjust path if needed
 // });
-// app.get('/', (req, res) => {
-//   res.json({
-//     message: 'Welcome to the API backend. Please use the official frontend at https://easy-ticket-mauve.vercel.app',
-//   });
-// });
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to the API backend. Please use the official frontend at https://easy-ticket-mauve.vercel.app',
+  });
+});
 
 
 app.get('/index', (req, res) => {
